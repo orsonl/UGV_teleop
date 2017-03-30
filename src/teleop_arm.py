@@ -33,7 +33,6 @@ class arm_controller:
 		self.control_arm(resolution_increase, resolution_decrease, arm_y_control,arm_z_control, arm_x_control_increase, arm_x_control_decrease)  
 
 	def control_arm(self, resolution_increase, resolution_decrease, arm_y_control,arm_z_control, arm_x_control_increase, arm_x_control_decrease):
-                print 2*self.resolution	
 		if(resolution_increase>0):
 			self.resolution = 2 * self.resolution	
 		elif(resolution_decrease>0):
@@ -54,10 +53,7 @@ class arm_controller:
 		elif(arm_x_control_decrease==1):
 			self.x = self.x - self.resolution
 		print 'Current state'	
-		print [self.x, self.y, self.z]
- 		print 'Current resolution'
-		print self.resolution
-	        # Move the arm. Commented during the development
+	    # Move the arm. 
 		moveArmTwist(self.x,self.y,self.z)
 def listener():
     rospy.init_node('teleop', anonymous=True)
@@ -69,11 +65,11 @@ def listener():
 
 if __name__ == '__main__':
 	rospy.init_node('teleop', anonymous=True)
-        x_init = rospy.get_param('x', 3)
-        y_init = rospy.get_param('y', 2)
-        z_init = rospy.get_param('z', 1)
+    x_init = rospy.get_param('x', 3)
+    y_init = rospy.get_param('y', 2)
+    z_init = rospy.get_param('z', 1)
 	#ac=arm_controller(3,2,1)
 	ac=arm_controller(x_init,y_init,z_init)
-        rospy.spin()
+    rospy.spin()
 
 

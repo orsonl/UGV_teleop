@@ -58,10 +58,7 @@ class arm_controller:
  		print 'Current resolution'
 		print self.resolution
 	        # Move the arm. Commented during the development
-		# moveArmTwist(arm_x,arm_y,arm_z)
-
-
- 
+		moveArmTwist(self.x,self.y,self.z)
 def listener():
     rospy.init_node('teleop', anonymous=True)
     rospy.Subscriber("/joy", Joy, callback)
