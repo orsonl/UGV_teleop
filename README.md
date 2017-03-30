@@ -7,4 +7,4 @@ wstool update -t src
 3.  UGV_telep contains the controller of the PTZ camera.
 
 ## Launch
-roslaunch UGV_teleop manual_control.launch
+roslaunch ugv_teleop manual_control.launch
